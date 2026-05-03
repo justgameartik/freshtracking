@@ -28,10 +28,10 @@ services:
     restart: unless-stopped
     environment:
       DATABASE_URL: postgres://freshtrack:freshtrack_secret@postgres:5432/freshtrack?sslmode=disable
-      PORT: 8080
+      PORT: 3000
       JWT_SECRET: super_secret_jwt_key_change_in_production
     ports:
-      - "8080:8080"
+      - "3000:3000"
     depends_on:
       postgres:
         condition: service_healthy
@@ -45,7 +45,7 @@ services:
     container_name: freshtrack_web
     restart: unless-stopped
     ports:
-      - "3000:80"
+      - "3001:80"
     depends_on:
       - backend
 
